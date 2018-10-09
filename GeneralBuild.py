@@ -27,6 +27,7 @@ img = tk.Label(root, image=bgImg)
 # bc this is a background photo, can just pack it in
 img.pack(side="top", fill="both", expand=True)
 
+
 # blueBg creates a Carolina blue canvas overlayed on the bgImg
 # bg is background and the hex code within represents the id for
 # UNC blue, or at least very close to it
