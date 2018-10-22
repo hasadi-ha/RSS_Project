@@ -47,32 +47,37 @@ blueFrame.place(relx=.5, rely=.5, anchor=CENTER)
 # initialize infoFrame and use it to encompass other three frames
 infoFrame = Frame(blueFrame, width=screenWidth*.765, height=screenHeight*.6813)
 infoFrame.place(relx=.5, rely=.5, anchor=CENTER)
-infoFrame.pack_propagate(False)
+infoFrame.pack_propagate(True)
 
 # extraFrame1 to be frame which contains picture and title
-extraFrame1 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
-extraFrame1.pack()
+# extraFrame1 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
+# extraFrame1.pack()
 
 # extraFrame2 to be frame which contains description
-extraFrame2 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
-extraFrame2.pack(side="bottom")
+# extraFrame2 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
+# extraFrame2.pack(side="bottom")
 
 # picLabel to be label containing picture scraped from site, default pic in place now
 # piclabel to be place in top left side of infoFrame overall but in left of
 # extraFrame1 for now
-picLabel = Label(extraFrame1, width=int(screenWidth*.3826),
-                 height=int(screenHeight*.17), image=bgImg)
-picLabel.pack(side="left", fill="y")
+path = "old_well.jpg"
+image02 = Image.open(path)
+image2 = image.resize((691, 389), Image.ANTIALIAS)
+newImage = ImageTk.PhotoImage(image2)
+picLabel = Label(infoFrame, width="680",
+                 height="381", image=newImage, borderwidth=0)
 
 # titleLabel to be label displaying site title in right of extraFrame 1
-titleLabel = Label(extraFrame1, bg="red", width=int(screenWidth*.3826),
-                   height=int(screenHeight*.17), text=post1)
-titleLabel.pack(side="right")
+titleLabel = Label(infoFrame, bg="red", width="100",
+                   height="25", text=post1, anchor=CENTER)
 
 # descLabel to display article description, filling extraFrame 2
-descLabel = Label(extraFrame2, bg="green", width=int(screenWidth * .765),
-                  height=int(screenHeight * .3826), text=entry1.description)
-descLabel.place(relx=.5, rely=.5, anchor=CENTER)
+descLabel = Label(infoFrame, bg="green", width="115",
+                  height="16", text=entry1.description, wraplength=1400, font=("helvetica", 16))
+
+picLabel.grid(row=0, column=0)
+titleLabel.grid(row=0, column=1, columnspan=2)
+descLabel.grid(row=1, column=0, columnspan=2)
 
 # mainloop to keep the window running until it is manually closed
 root.mainloop()
