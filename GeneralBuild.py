@@ -44,24 +44,35 @@ blueFrame = Frame(root, bg='#4B9CD3', width=int(screenWidth*.85),
                   height=int(screenHeight*.757))
 blueFrame.place(relx=.5, rely=.5, anchor=CENTER)
 
+# initialize infoFrame and use it to encompass other three frames
 infoFrame = Frame(blueFrame, width=screenWidth*.765, height=screenHeight*.6813)
 infoFrame.place(relx=.5, rely=.5, anchor=CENTER)
 infoFrame.pack_propagate(False)
 
-extraFrame1 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.6813)
-extraFrame1.pack(side="top")
+# extraFrame1 to be frame which contains picture and title
+extraFrame1 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
+extraFrame1.pack()
 
-extraFrame2 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.6813)
+# extraFrame2 to be frame which contains description
+extraFrame2 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
 extraFrame2.pack(side="bottom")
 
+# picLabel to be label containing picture scraped from site, default pic in place now
+# piclabel to be place in top left side of infoFrame overall but in left of
+# extraFrame1 for now
 picLabel = Label(extraFrame1, width=int(screenWidth*.3826),
-                 height=int(screenHeight*.34065), image=bgImg).pack(side="left",
-                                                                    fill="both", expand=True)
+                 height=int(screenHeight*.17), image=bgImg)
+picLabel.pack(side="left", fill="y")
+
+# titleLabel to be label displaying site title in right of extraFrame 1
 titleLabel = Label(extraFrame1, bg="red", width=int(screenWidth*.3826),
-                   height=int(screenHeight*.34065), text=post1).pack()
-descLabel = Label(extraFrame1, bg="green", width=int(screenWidth * .765),
-                  height=int(screenHeight * .3826), text=entry1.description)\
-    .pack(side="bottom")
+                   height=int(screenHeight*.17), text=post1)
+titleLabel.pack(side="right")
+
+# descLabel to display article description, filling extraFrame 2
+descLabel = Label(extraFrame2, bg="green", width=int(screenWidth * .765),
+                  height=int(screenHeight * .3826), text=entry1.description)
+descLabel.place(relx=.5, rely=.5, anchor=CENTER)
 
 # mainloop to keep the window running until it is manually closed
 root.mainloop()
