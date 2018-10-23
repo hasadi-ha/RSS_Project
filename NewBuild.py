@@ -4,6 +4,7 @@ import tkinter as tk
 import feedparser
 import tkinter.filedialog as fd
 
+
 # create a new tk window and gets screen size
 root = tk.Tk()
 
@@ -39,10 +40,11 @@ infoFrame.place(x=75, y=40)
 infoFrame.pack_propagate(0)
 
 # resizing image to fit into picLabel
-path = fd.askopenfilename()
-img = ImageTk.PhotoImage(Image.open(path))
-# image2 = img.resize((691, 389), Image.ANTIALIAS)
-# newImage = ImageTk.PhotoImage(image2)
+# path = fd.askopenfilename()
+path = "C:/Users/zgoodman/desktop/work/RSS_Project/krebs.jpg"
+img = Image.open(path)
+image2 = img.resize((691, 389), Image.ANTIALIAS)
+newImage = ImageTk.PhotoImage(image2)
 # create three canvases for pic, title, and description
 site1 = feedparser.parse('https://krebsonsecurity.com/feed')
 entry1 = site1.entries[0]
@@ -58,7 +60,7 @@ def label_maker(master, x, y, w, h, *args, **kwargs):
     return label
 
 
-picLabel = label_maker(infoFrame, 0, 0, 630, 389, image=img, background='red')
+picLabel = label_maker(infoFrame, 0, 0, 630, 389, image=newImage, background='red')
 titleLabel = label_maker(infoFrame, 630, 0, 655, 389, text=post1, background='blue', font=("", 20))
 descLabel = label_maker(infoFrame, 0, 389, 1286, 389, text=entry1.description, wraplength=1250,
                         font=("", 16), background='green')
