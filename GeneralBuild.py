@@ -47,19 +47,11 @@ blueFrame.place(relx=.5, rely=.5, anchor=CENTER)
 # initialize infoFrame and use it to encompass other three frames
 infoFrame = Frame(blueFrame, width=screenWidth*.765, height=screenHeight*.6813)
 infoFrame.place(relx=.5, rely=.5, anchor=CENTER)
-infoFrame.pack_propagate(True)
-
-# extraFrame1 to be frame which contains picture and title
-# extraFrame1 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
-# extraFrame1.pack()
-
-# extraFrame2 to be frame which contains description
-# extraFrame2 = Frame(infoFrame, width=screenWidth*.765, height=screenHeight*.34)
-# extraFrame2.pack(side="bottom")
+infoFrame.pack_propagate(0)
 
 # picLabel to be label containing picture scraped from site, default pic in place now
-# piclabel to be place in top left side of infoFrame overall but in left of
-# extraFrame1 for now
+# picLabel to be place in top left side of infoFrame overall
+# resizing image to fit into picLabel
 path = "old_well.jpg"
 image02 = Image.open(path)
 image2 = image.resize((691, 389), Image.ANTIALIAS)
@@ -73,7 +65,7 @@ titleLabel = Label(infoFrame, bg="red", width="100",
 
 # descLabel to display article description, filling extraFrame 2
 descLabel = Label(infoFrame, bg="green", width="115",
-                  height="16", text=entry1.description, wraplength=1400, font=("helvetica", 16))
+                  height="16", text=entry1.description, wraplength=1400, font=("", 16))
 
 picLabel.grid(row=0, column=0)
 titleLabel.grid(row=0, column=1, columnspan=2)
