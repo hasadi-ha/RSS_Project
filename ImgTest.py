@@ -1,16 +1,11 @@
 import tkinter as tk
-from PIL import ImageTk, Image
+from PIL import Image, ImageTk
+root = tk.Tk()
 
-window = tk.Tk()
-window.geometry("500x500")
-window.configure(bg='grey')
+label = tk.Label(root)
+img = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\krebs.jpg")
+label.img = ImageTk.PhotoImage(img)
+label['image'] = label.img
 
-path = "old_well.jpg"
-
-img = ImageTk.PhotoImage(Image.open(path))
-
-panel = tk.Label(window, image=img)
-
-panel.pack()
-
-window.mainloop()
+label.pack()
+root.mainloop()
