@@ -3,7 +3,7 @@ from PIL import Image
 import tkinter as tk
 import feedparser
 from tkinter import CENTER, Frame, Label, BOTH
-import time
+import os
 
 # create a new tk window and gets screen size based on monitor display
 root = tk.Tk()
@@ -12,7 +12,7 @@ screenWidth = root.winfo_screenwidth()
 screenHeight = root.winfo_screenheight()
 
 # path variable to store image path
-path = "old_well.jpg"
+path = str(os.getcwd()) + "\old_well.jpg"
 
 # opens image from path
 image = Image.open(path)
@@ -41,19 +41,24 @@ infoFrame.pack_propagate(0)
 
 
 # create new photo image of one of the sites' pics and save it as newImage
-img1 = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\krebs.jpg")
+input1 = str(os.getcwd()) + "\\krebs.jpg"
+img1 = Image.open(input1)
 image1 = img1.resize((691, 389))
 newImage1 = ImageTk.PhotoImage(image1)
-img2 = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\threat_post_img.png")
+input2 = str(os.getcwd()) + "\\threat_post_img.png"
+img2 = Image.open(input2)
 image2 = img2.resize((660, 389))
 newImage2 = ImageTk.PhotoImage(image2)
-img3 = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\security_list.jfif")
+input3 = str(os.getcwd()) + "\\security_list.jfif"
+img3 = Image.open(input3)
 image3 = img3.resize((691, 389))
 newImage3 = ImageTk.PhotoImage(image3)
-img4 = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\sophos_sec.jfif")
+input4 = str(os.getcwd()) + "\\sophos_sec.jfif"
+img4 = Image.open(input4)
 image4 = img4.resize((691, 389))
 newImage4 = ImageTk.PhotoImage(image4)
-img5 = Image.open(r"C:\Users\zgoodman\desktop\work\RSS_Project\cisco_security.jfif")
+input5 = str(os.getcwd()) + "\\cisco_security.jfif"
+img5 = Image.open(input5)
 image5 = img5.resize((691, 389))
 newImage5 = ImageTk.PhotoImage(image5)
 
@@ -84,7 +89,8 @@ def label_maker(master, x, y, w, h, *args, **kwargs):
     return label
 
 
-# creates new labels for the site pic, title of the first article, and first article description
+# first function which creates new labels and fills them with the relevant site pic,
+#  first article title and description
 def fn1():
     label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
     label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 20), wraplength=600)
@@ -92,6 +98,7 @@ def fn1():
                 background='green')
 
 
+# second function to create labels and fill them with relevant info
 def fn2():
     label_maker(infoFrame, 0, 0, 630, 389, image=newImage2, background='red')
     label_maker(infoFrame, 630, 0, 655, 389, text=entry2.title, background='blue', font=("", 20), wraplength=600)
@@ -99,6 +106,7 @@ def fn2():
                 background='green')
 
 
+# third
 def fn3():
     label_maker(infoFrame, 0, 0, 630, 389, image=newImage3, background='red')
     label_maker(infoFrame, 630, 0, 655, 389, text=entry3.title, background='blue', font=("", 20), wraplength=600)
@@ -106,6 +114,7 @@ def fn3():
                 background='green')
 
 
+# fourth
 def fn4():
     label_maker(infoFrame, 0, 0, 630, 389, image=newImage4, background='red')
     label_maker(infoFrame, 630, 0, 655, 389, text=entry4.title, background='blue', font=("", 20), wraplength=600)
@@ -113,14 +122,13 @@ def fn4():
                 background='green')
 
 
+# fifth
 def fn5():
     label_maker(infoFrame, 0, 0, 630, 389, image=newImage5, background='red')
     label_maker(infoFrame, 630, 0, 655, 389, text=entry5.title, background='blue', font=("", 20), wraplength=600)
     label_maker(infoFrame, 0, 389, 1286, 389, text=entry5.description, wraplength=1250, font=("", 16),
                 background='green')
 
-
-fn1()
 
 
 
