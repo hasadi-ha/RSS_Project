@@ -1,10 +1,9 @@
 import feedparser
 from tkinter import *
-import tkinter.scrolledtext
 
 # creating site var for the data from each site, parsed
 
-site1 = feedparser.parse('https://krebsonsecurity.com/feed')
+site1 = feedparser.parse('https://krebsonsecurity.com/feed/')
 site2 = feedparser.parse('https://threatpost.com/feed/')
 site3 = feedparser.parse('https://securityboulevard.com/feed/')
 site4 = feedparser.parse('https://nakedsecurity.sophos.com/feed')
