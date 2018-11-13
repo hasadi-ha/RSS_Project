@@ -91,7 +91,7 @@ infoFrame.place(x=75, y=40)
 infoFrame.pack_propagate(0)
 
 
-# create new photo image of one of the sites' pics and save it as newImage
+# create a new photo image of one of the sites' pics and save it as newImage
 input1 = str(os.getcwd()) + "\\krebs.jpg"
 img1 = Image.open(input1)
 image1 = img1.resize((691, 389))
