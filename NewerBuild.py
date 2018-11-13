@@ -2,48 +2,56 @@ import tkinter as tk
 import os
 from PIL import Image, ImageTk
 import feedparser
-from tkinter import Frame, CENTER
+from tkinter import Frame, CENTER, Label, BOTH
 
 
 def manage_time():
     global tracker
     if tracker == 1:
-        label1.config(image=newImage1)
-        label2.config(text=entry1['title'])
-        label3.config(text=entry1['description'])
-        tracker == 2
+        label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 20), wraplength=600)
+        label_maker(infoFrame, 0, 389, 1286, 389, text=entry1.description, wraplength=1250, font=("", 16),
+                    background='green')
+        tracker = 2
         root.after(15000, manage_time)
     elif tracker == 2:
-        label1.config(image=newImage2)
-        label2.config(text=entry2['title'])
-        label3.config(text=entry2['description'])
-        tracker == 3
+        label_maker(infoFrame, 0, 0, 630, 389, image=newImage2, background='red')
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry2.title, background='blue', font=("", 20), wraplength=600)
+        label_maker(infoFrame, 0, 389, 1286, 389, text=entry2.description, wraplength=1250, font=("", 16),
+                    background='green')
+        tracker = 3
         root.after(15000, manage_time)
     elif tracker == 3:
-        label1.config(image=newImage3)
-        label2.config(text=entry3['title'])
-        label3.config(text=entry3['description'])
-        tracker == 4
+        label_maker(infoFrame, 0, 0, 630, 389, image=newImage3, background='red')
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry3.title, background='blue', font=("", 20), wraplength=600)
+        label_maker(infoFrame, 0, 389, 1286, 389, text=entry3.description, wraplength=1250, font=("", 16),
+                    background='green')
+        tracker = 4
         root.after(15000, manage_time)
     elif tracker == 4:
-        label1.config(image=newImage4)
-        label2.config(text=entry4['title'])
-        label3.config(text=entry4['description'])
-        tracker == 5
+        label_maker(infoFrame, 0, 0, 630, 389, image=newImage4, background='red')
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry4.title, background='blue', font=("", 20), wraplength=600)
+        label_maker(infoFrame, 0, 389, 1286, 389, text=entry4.description, wraplength=1250, font=("", 16),
+                    background='green')
+        tracker = 5
         root.after(15000, manage_time)
     elif tracker == 5:
-        label1.config(image=newImage5)
-        label2.config(text=entry5['title'])
-        label3.config(text=entry5['description'])
-        tracker == 6
+        label_maker(infoFrame, 0, 0, 630, 389, image=newImage5, background='red')
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry5.title, background='blue', font=("", 20), wraplength=600)
+        label_maker(infoFrame, 0, 389, 1286, 389, text=entry5.description, wraplength=1250, font=("", 16),
+                    background='green')
+
+        tracker = 1
         root.after(15000, manage_time)
     else:
         root.destroy()
 
 
 def label_maker(master, x, y, w, h, *args, **kwargs):
-    label = tk.Label(master, *args, **kwargs)
-    label.pack(fill="both", expand=1)
+    frame = Frame(master, width=w, height=h)
+    frame.pack_propagate(0)
+    frame.place(x=x, y=y)
+    label = Label(frame, *args, **kwargs).pack(fill=BOTH, expand=1)
     return label
 
 
@@ -113,15 +121,11 @@ site4 = feedparser.parse('https://nakedsecurity.sophos.com/feed')
 site5 = feedparser.parse('https://blogs.cisco.com/security/feed')
 
 # getting the first article from each site and saving them as an entry var
-entry1 = {"title": site1.entries[0].title, "description": site1.entries[0].description}
-entry2 = {"title": site2.entries[0].title, "description": site2.entries[0].description}
-entry3 = {"title": site3.entries[0].title, "description": site3.entries[0].description}
-entry4 = {"title": site4.entries[0].title, "description": site4.entries[0].description}
-entry5 = {"title": site5.entries[0].title, "description": site5.entries[0].description}
-
-label1 = label_maker(infoFrame, 0, 0, 630, 389, bg="red")
-label2 = label_maker(infoFrame, 630, 0, 655, 389, bg="blue")
-label3 = label_maker(infoFrame, 0, 389, 1286, 389, bg="green")
+entry1 = site1.entries[0]
+entry2 = site2.entries[0]
+entry3 = site3.entries[0]
+entry4 = site4.entries[0]
+entry5 = site5.entries[0]
 
 root.after(15000, manage_time())
 root.mainloop()
