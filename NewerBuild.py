@@ -7,7 +7,6 @@ from tkinter import Frame, CENTER, Label, BOTH
 
 def manage_time():
     global tracker
-
     if tracker == 1:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
         label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 20), wraplength=600)
