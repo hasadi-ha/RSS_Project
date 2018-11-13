@@ -5,9 +5,11 @@ import feedparser
 from tkinter import Frame, CENTER, Label, BOTH
 
 
+# manage_time creates a tracking variable, tracker, and uses it to recursively call itself and other instances
+# of label_maker so that a new picture, article title and article description from one of the five used sites
+# is displayed every 15 seconds
 def manage_time():
     global tracker
-
     if tracker == 1:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
         label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 20), wraplength=600)
@@ -48,6 +50,7 @@ def manage_time():
         root.destroy()
 
 
+# label_maker creates a label within a frame and places it into the master, which in this case is infoFrame
 def label_maker(master, x, y, w, h, *args, **kwargs):
     frame = Frame(master, width=w, height=h)
     frame.pack_propagate(0)
@@ -128,5 +131,7 @@ entry3 = site3.entries[0]
 entry4 = site4.entries[0]
 entry5 = site5.entries[0]
 
+# calls manage_time after 15 seconds and begins displaying the information from the websites
 root.after(15000, manage_time())
+# keeps the window running until it is manually closed
 root.mainloop()
