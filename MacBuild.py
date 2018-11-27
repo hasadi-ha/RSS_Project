@@ -20,37 +20,37 @@ def label_maker(master, x, y, w, h, *args, **kwargs):
 def make_labels():
     global tracker
     if tracker == 1:
-        label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 24), wraplength=600)
-        label_maker(infoFrame, 0, 389, 1286, 389, text=entry1.description, wraplength=1250, font=("", 24),
+        label_maker(infoFrame, 0, 0, 590, 360, image=newImage1, background='red')
+        label_maker(infoFrame, 540, 0, 600, 360, text=entry1.title, background='blue', font=("", 24), wraplength=480)
+        label_maker(infoFrame, 0, 350, 1110, 300, text=entry1.description, wraplength=1050, font=("", 24),
                     background='green')
         tracker = 2
         root.after(15000, make_labels)
     elif tracker == 2:
-        label_maker(infoFrame, 0, 0, 630, 389, image=newImage2, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry2.title, background='blue', font=("", 24), wraplength=600)
-        label_maker(infoFrame, 0, 389, 1286, 389, text=entry2.description, wraplength=1250, font=("", 24),
+        label_maker(infoFrame, -10, 0, 565, 360, image=newImage2, background='red')
+        label_maker(infoFrame, 540, 0, 600, 360, text=entry2.title, background='blue', font=("", 24), wraplength=480)
+        label_maker(infoFrame, 0, 350, 1110, 300, text=entry2.description, wraplength=1050, font=("", 24),
                     background='green')
         tracker = 3
         root.after(15000, make_labels)
     elif tracker == 3:
-        label_maker(infoFrame, 0, 0, 630, 389, image=newImage3, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry3.title, background='blue', font=("", 24), wraplength=600)
-        label_maker(infoFrame, 0, 389, 1286, 389, text=entry3.description, wraplength=1250, font=("", 24),
+        label_maker(infoFrame, 0, 0, 545, 360, image=newImage3, background='red')
+        label_maker(infoFrame, 540, 0, 600, 360, text=entry3.title, background='blue', font=("", 24), wraplength=480)
+        label_maker(infoFrame, 0, 350, 1110, 300, text=entry3.description, wraplength=1050, font=("", 24),
                     background='green')
         tracker = 4
         root.after(15000, make_labels)
     elif tracker == 4:
-        label_maker(infoFrame, 0, 0, 630, 389, image=newImage4, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry4.title, background='blue', font=("", 24), wraplength=600)
-        label_maker(infoFrame, 0, 389, 1286, 389, text=entry4.description, wraplength=1250, font=("", 24),
+        label_maker(infoFrame, 0, 0, 590, 360, image=newImage4, background='red')
+        label_maker(infoFrame, 540, 0, 600, 360, text=entry4.title, background='blue', font=("", 24), wraplength=480)
+        label_maker(infoFrame, 0, 350, 1110, 300, text=entry4.description, wraplength=1050, font=("", 24),
                     background='green')
         tracker = 5
         root.after(15000, make_labels)
     elif tracker == 5:
-        label_maker(infoFrame, 0, 0, 630, 389, image=newImage5, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry5.title, background='blue', font=("", 24), wraplength=600)
-        label_maker(infoFrame, 0, 389, 1286, 389, text=entry5.description, wraplength=1250, font=("", 24),
+        label_maker(infoFrame, 0, 0, 545, 360, image=newImage5, background='red')
+        label_maker(infoFrame, 540, 0, 600, 360, text=entry5.title, background='blue', font=("", 24), wraplength=480)
+        label_maker(infoFrame, 0, 350, 1110, 300, text=entry5.description, wraplength=1050, font=("", 24),
                     background='green')
 
         tracker = 1
@@ -101,7 +101,7 @@ image1 = img1.resize((691, 389))
 newImage1 = ImageTk.PhotoImage(image1)
 input2 = str(os.getcwd()) + "//threat_post_img.png"
 img2 = Image.open(input2)
-image2 = img2.resize((660, 389))
+image2 = img2.resize((565, 389))
 newImage2 = ImageTk.PhotoImage(image2)
 input3 = str(os.getcwd()) + "//security_list.jfif"
 img3 = Image.open(input3)
@@ -131,6 +131,6 @@ entry4 = site4.entries[0]
 entry5 = site5.entries[0]
 
 # calls manage_time after 15 seconds and begins displaying the information from the websites
-root.after(1500, make_labels())
+root.after(150, make_labels())
 # keeps the window running until it is manually closed
 root.mainloop()
