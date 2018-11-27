@@ -38,6 +38,49 @@ canvas = Canvas(root, bg='#4B9CD3', width=1536, height=864, highlightthickness=0
 # halfway across the window) and anchor places the canvas in a
 # centered position relative to the window itself
 canvas.place(relx=.5, rely=.5, anchor=CENTER)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # mainloop to keep the window running until it is manually closed
 root.mainloop()
 
