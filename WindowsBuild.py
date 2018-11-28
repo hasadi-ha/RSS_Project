@@ -21,37 +21,42 @@ def make_labels():
     global tracker
     if tracker == 1:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage1, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='blue', font=("", 24), wraplength=600)
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry1.title, background='#13294B', fg='#007FAE', font=("", 24),
+                    wraplength=600)
         label_maker(infoFrame, 0, 389, 1286, 389, text=entry1.description, wraplength=1250, font=("", 24),
-                    background='green')
+                    background='#13294B', fg='#007FAE')
         tracker = 2
         root.after(15000, make_labels)
     elif tracker == 2:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage2, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry2.title, background='blue', font=("", 24), wraplength=600)
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry2.title, background='#13294B', fg='#007FAE', font=("", 24),
+                    wraplength=600)
         label_maker(infoFrame, 0, 389, 1286, 389, text=entry2.description, wraplength=1250, font=("", 24),
-                    background='green')
+                    background='#13294B', fg='#007FAE')
         tracker = 3
         root.after(15000, make_labels)
     elif tracker == 3:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage3, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry3.title, background='blue', font=("", 24), wraplength=600)
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry3.title, background='#13294B', fg='#007FAE', font=("", 24),
+                    wraplength=600)
         label_maker(infoFrame, 0, 389, 1286, 389, text=entry3.description, wraplength=1250, font=("", 24),
-                    background='green')
+                    background='#13294B', fg='#007FAE')
         tracker = 4
         root.after(15000, make_labels)
     elif tracker == 4:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage4, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry4.title, background='blue', font=("", 24), wraplength=600)
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry4.title,background='#13294B', fg='#007FAE', font=("", 24),
+                    wraplength=600)
         label_maker(infoFrame, 0, 389, 1286, 389, text=entry4.description, wraplength=1250, font=("", 24),
-                    background='green')
+                    background='#13294B', fg='#007FAE')
         tracker = 5
         root.after(15000, make_labels)
     elif tracker == 5:
         label_maker(infoFrame, 0, 0, 630, 389, image=newImage5, background='red')
-        label_maker(infoFrame, 630, 0, 655, 389, text=entry5.title, background='blue', font=("", 24), wraplength=600)
+        label_maker(infoFrame, 630, 0, 655, 389, text=entry5.title, background='#13294B', fg='#007FAE', font=("", 24),
+                    wraplength=600)
         label_maker(infoFrame, 0, 389, 1286, 389, text=entry5.description, wraplength=1250, font=("", 24),
-                    background='green')
+                    background='#13294B', fg='#007FAE')
 
         tracker = 1
         root.after(15000, make_labels)
@@ -131,6 +136,6 @@ entry4 = site4.entries[0]
 entry5 = site5.entries[0]
 
 # calls manage_time after 15 seconds and begins displaying the information from the websites
-root.after(1500, make_labels())
+root.after(150, make_labels())
 # keeps the window running until it is manually closed
 root.mainloop()
