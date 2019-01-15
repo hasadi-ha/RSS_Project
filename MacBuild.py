@@ -20,43 +20,43 @@ def label_maker(master, x, y, w, h, *args, **kwargs):
 def make_labels():
     global tracker
     if tracker == 1:
-        label_maker(infoFrame, 0, 0, 590, 360, image=newImage1, background='red')
-        label_maker(infoFrame, 540, 0, 600, 360, text=entry1.title, background='#13294B', fg='#007FAE', font=("", 24),
-                    wraplength=480)
-        label_maker(infoFrame, 0, 350, 1110, 300, text=entry1.description, wraplength=1050, font=("", 24),
-                    background='#13294B', fg='#007FAE')
+        label_maker(infoFrame, 0, 0, pic_width, pic_height, image=newImage1, background='red')
+        label_maker(infoFrame, (info_width / 2), 0, title_width, title_height, text=entry1.title, background='#13294B',
+                    fg='#007FAE', font=("", 30), wraplength=550)
+        label_maker(infoFrame, 0, (info_height/2), desc_width, desc_height, text=entry1.description, wraplength=1200,
+                    font=("", 36), background='#13294B', fg='#007FAE')
         tracker = 2
         root.after(15000, make_labels)
     elif tracker == 2:
-        label_maker(infoFrame, -10, 0, 565, 360, image=newImage2, background='red')
-        label_maker(infoFrame, 540, 0, 600, 360, text=entry2.title, background='#13294B', fg='#007FAE', font=("", 24),
-                    wraplength=480)
-        label_maker(infoFrame, 0, 350, 1110, 300, text=entry2.description, wraplength=1050, font=("", 24),
-                    background='#13294B', fg='#007FAE')
+        label_maker(infoFrame, 0, 0, pic_width, pic_height, image=newImage2, background='red')
+        label_maker(infoFrame, (info_width / 2), 0, title_width, title_height, text=entry2.title, background='#13294B',
+                    fg='#007FAE', font=("", 30), wraplength=550)
+        label_maker(infoFrame, 0, (info_height / 2), desc_width, desc_height, text=entry2.description, wraplength=1200,
+                    font=("", 36), background='#13294B', fg='#007FAE')
         tracker = 3
         root.after(15000, make_labels)
     elif tracker == 3:
-        label_maker(infoFrame, 0, 0, 545, 360, image=newImage3, background='red')
-        label_maker(infoFrame, 540, 0, 600, 360, text=entry3.title, background='#13294B', fg='#007FAE', font=("", 24),
-                    wraplength=480)
-        label_maker(infoFrame, 0, 350, 1110, 300, text=entry3.description, wraplength=1050, font=("", 24),
-                    background='#13294B', fg='#007FAE')
+        label_maker(infoFrame, 0, 0, pic_width, pic_height, image=newImage3, background='red')
+        label_maker(infoFrame, (info_width / 2), 0, title_width, title_height, text=entry3.title, background='#13294B',
+                    fg='#007FAE', font=("", 30), wraplength=550)
+        label_maker(infoFrame, 0, (info_height / 2), desc_width, desc_height, text=entry3.description, wraplength=1200,
+                    font=("", 36), background='#13294B', fg='#007FAE')
         tracker = 4
         root.after(15000, make_labels)
     elif tracker == 4:
-        label_maker(infoFrame, 0, 0, 590, 360, image=newImage4, background='red')
-        label_maker(infoFrame, 540, 0, 600, 360, text=entry4.title, background='#13294B', fg='#007FAE', font=("", 24),
-                    wraplength=480)
-        label_maker(infoFrame, 0, 350, 1110, 300, text=entry4.description, wraplength=1050, font=("", 24),
-                    background='#13294B', fg='#007FAE')
+        label_maker(infoFrame, 0, 0, pic_width, pic_height, image=newImage4, background='red')
+        label_maker(infoFrame, (info_width / 2), 0, title_width, title_height, text=entry4.title, background='#13294B',
+                    fg='#007FAE', font=("", 30), wraplength=550)
+        label_maker(infoFrame, 0, (info_height / 2), desc_width, desc_height, text=entry4.description, wraplength=1200,
+                    font=("", 36), background='#13294B', fg='#007FAE')
         tracker = 5
         root.after(15000, make_labels)
     elif tracker == 5:
-        label_maker(infoFrame, 0, 0, 545, 360, image=newImage5, background='red')
-        label_maker(infoFrame, 540, 0, 600, 360, text=entry5.title, background='#13294B', fg='#007FAE', font=("", 24),
-                    wraplength=480)
-        label_maker(infoFrame, 0, 350, 1110, 300, text=entry5.description, wraplength=1050, font=("", 24),
-                    background='#13294B', fg='#007FAE')
+        label_maker(infoFrame, 0, 0, pic_width, pic_height, image=newImage5, background='red')
+        label_maker(infoFrame, (info_width / 2), 0, title_width, title_height, text=entry5.title, background='#13294B',
+                    fg='#007FAE', font=("", 30), wraplength=550)
+        label_maker(infoFrame, 0, (info_height / 2), desc_width, desc_height, text=entry5.description, wraplength=1200,
+                    font=("", 36), background='#13294B', fg='#007FAE')
 
         tracker = 1
         root.after(15000, make_labels)
@@ -69,7 +69,14 @@ root = tk.Tk()
 tracker = 1
 screenWidth = root.winfo_screenwidth()
 screenHeight = root.winfo_screenheight()
-
+info_width = (screenWidth * .765)
+info_height = (screenHeight * .6813)
+pic_width = (info_width / 2)
+pic_height = (info_height / 2)
+title_width = (info_width / 2)
+title_height = (info_height / 2)
+desc_width = info_width
+desc_height = (info_height / 2)
 # path variable to store image path
 path = str(os.getcwd()) + "//old_well.jpg"
 
@@ -102,23 +109,23 @@ infoFrame.pack_propagate(0)
 # create a new photo image of one of the sites' pics and save it as newImage
 input1 = str(os.getcwd()) + "//krebs.jpg"
 img1 = Image.open(input1)
-image1 = img1.resize((691, 389))
+image1 = img1.resize((int(pic_width), int(pic_height)+5))
 newImage1 = ImageTk.PhotoImage(image1)
 input2 = str(os.getcwd()) + "//threat_post_img.png"
 img2 = Image.open(input2)
-image2 = img2.resize((565, 389))
+image2 = img2.resize((int(pic_width), int(pic_height)+5))
 newImage2 = ImageTk.PhotoImage(image2)
 input3 = str(os.getcwd()) + "//security_list.jfif"
 img3 = Image.open(input3)
-image3 = img3.resize((691, 389))
+image3 = img3.resize((int(pic_width), int(pic_height)+5))
 newImage3 = ImageTk.PhotoImage(image3)
 input4 = str(os.getcwd()) + "//sophos_sec.jfif"
 img4 = Image.open(input4)
-image4 = img4.resize((691, 389))
+image4 = img4.resize((int(pic_width), int(pic_height)+5))
 newImage4 = ImageTk.PhotoImage(image4)
 input5 = str(os.getcwd()) + "//cisco_security.jfif"
 img5 = Image.open(input5)
-image5 = img5.resize((691, 389))
+image5 = img5.resize((int(pic_width), int(pic_height)+5))
 newImage5 = ImageTk.PhotoImage(image5)
 
 # creating site var for the data from each site, parsed
